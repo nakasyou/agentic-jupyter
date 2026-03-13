@@ -12,6 +12,10 @@
   "bin": {
     "agentic-jupyter": "./dist/bin.mjs"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakasyou/agentic-jupyter.git"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
