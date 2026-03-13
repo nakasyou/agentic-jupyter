@@ -12,7 +12,8 @@
     "lint": "vp lint",
     "serve": "tsc -b packages/cli/tsconfig.json && node packages/cli/dist/bin.js serve",
     "start": "tsc -b packages/cli/tsconfig.json && node packages/cli/dist/bin.js serve",
-    "test": "find packages/cli -path '*/dist' -prune -o -name '*.test.ts' -print | xargs bun test"
+    "test": "find packages/cli -path '*/dist' -prune -o -name '*.test.ts' -print | xargs bun test",
+    "package:vscode": "cd packages/vscode && bun run package"
   },
   "repository": {
     "type": "git",

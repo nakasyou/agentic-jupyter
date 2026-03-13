@@ -1,45 +1,11 @@
 # agentic-jupyter
 
-`agentic-jupyter` is now a 2-workspace monorepo:
-
-- `packages/cli`: the CLI package, internal libraries, and MCP server
-- `packages/vscode`: the VS Code host bridge extension
-
-## Workspace Layout
-
-- `packages/cli`
-- `packages/vscode`
-
-## Requirements
-
-- Node.js 20+
-- Bun 1.3+ for the Bun-based test suite
-- For remote Jupyter mode: a reachable Jupyter Server and token if required
-- For VS Code host mode: Desktop VS Code with the Jupyter extension installed
-
 ## Install
 
 ```bash
-npm install
-```
-
-## Run
-
-Start the MCP server:
-
-```bash
-npm run serve
+npm install -g agentic-jupyter
 # or
-npm run build
-cd packages/cli && npm run serve
-```
-
-Run validation:
-
-```bash
-npm run check
-bun run test
-npm run build
+bun add -g agentic-jupyter
 ```
 
 ## CLI Backends

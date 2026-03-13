@@ -2,15 +2,19 @@
   "name": "agentic-jupyter-vscode-host",
   "displayName": "Agentic Jupyter Host",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
   "publisher": "nakasyou",
   "engines": {
     "vscode": "^1.99.0"
   },
+  "license": "MIT",
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakasyou/agentic-jupyter.git"
+  },
   "activationEvents": [
     "onCommand:agenticJupyter.startHost",
     "onCommand:agenticJupyter.stopHost",
@@ -19,7 +23,18 @@
   "extensionDependencies": [
     "ms-toolsai.jupyter"
   ],
-  "main": "./dist/extension.js",
+  "main": "./dist/extension.mjs",
+  "files": [
+    "dist/**",
+    "LICENSE",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc -b ../cli/tsconfig.json && tsdown --config ./tsdown.config.ts",
+    "vscode:prepublish": "npm run build",
+    "package": "bunx @vscode/vsce package --no-dependencies",
+    "publish": "bunx @vscode/vsce publish --no-dependencies"
+  },
   "contributes": {
     "commands": [
       {
@@ -54,8 +69,10 @@
       }
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@vscode/jupyter-extension": "^1.1.1",
+    "@vscode/vsce": "^3.7.1"
+    ,
     "agentic-jupyter": "workspace:*",
     "ws": "^8.18.3"
   }
