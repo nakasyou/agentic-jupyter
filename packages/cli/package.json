@@ -1,0 +1,37 @@
+{
+  "name": "agentic-jupyter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vp pack",
+    "serve": "sh -c 'node ./dist/bin.js serve 2>/dev/null || node ./dist/bin.mjs serve'",
+    "test": "find src -name '*.test.ts' -print | xargs bun test"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "agentic-jupyter": "./dist/bin.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./core": {
+      "types": "./dist/lib/core/index.d.ts",
+      "default": "./dist/lib/core/index.js"
+    }
+  },
+  "files": [
+    "src/**/*.ts",
+    "!src/**/*.test.ts"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "ws": "^8.18.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "vite-plus": "^0.1.9"
+  }
+}

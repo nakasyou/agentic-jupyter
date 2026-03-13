@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowJs": false,
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "types": ["node", "bun"],
+    "paths": {
+      "agentic-jupyter": ["packages/cli/src/index.ts"],
+      "agentic-jupyter/core": ["packages/cli/src/lib/core/index.ts"]
+    }
+  },
+  "include": ["packages/cli/**/*.ts", "packages/vscode/**/*.ts"],
+  "exclude": ["dist", "node_modules", "**/dist", "**/out"]
+}

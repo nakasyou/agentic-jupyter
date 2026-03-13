@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agentic Jupyter"
+  short_description: "Use local or remote Jupyter via MCP or CLI"
+  default_prompt: "Use $agentic-jupyter to inspect or operate a local or remote Jupyter notebook session."

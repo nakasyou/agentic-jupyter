@@ -1,0 +1,40 @@
+{
+  "name": "agentic-jupyter-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for agentic Jupyter MCP, CLI, and VS Code host bridge.",
+  "type": "module",
+  "workspaces": ["packages/cli", "packages/vscode"],
+  "scripts": {
+    "build": "find packages/cli/dist packages/vscode/dist -type f -delete 2>/dev/null || true && find packages/cli packages/vscode -maxdepth 1 -name 'tsconfig.tsbuildinfo' -delete && tsc -b --force packages/cli/tsconfig.json packages/vscode/tsconfig.json",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "fmt": "vp fmt",
+    "lint": "vp lint",
+    "serve": "tsc -b packages/cli/tsconfig.json && node packages/cli/dist/bin.js serve",
+    "start": "tsc -b packages/cli/tsconfig.json && node packages/cli/dist/bin.js serve",
+    "test": "find packages/cli -path '*/dist' -prune -o -name '*.test.ts' -print | xargs bun test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakasyou/agentic-jupyter.git"
+  },
+  "homepage": "https://github.com/nakasyou/agentic-jupyter#readme",
+  "bugs": {
+    "url": "https://github.com/nakasyou/agentic-jupyter/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "ws": "^8.18.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^24.5.2",
+    "@types/vscode": "^1.99.0",
+    "@types/ws": "^8.18.1",
+    "@vscode/test-electron": "^2.5.2",
+    "tsdown": "^0.21.2",
+    "typescript": "^5.9.2",
+    "vite-plus": "^0.1.7"
+  }
+}
